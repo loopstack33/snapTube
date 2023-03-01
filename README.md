@@ -1,4 +1,4 @@
-# youtube_downloader
+# SnapTube
 
 A new Flutter project.
 
