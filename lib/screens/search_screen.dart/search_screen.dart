@@ -32,7 +32,7 @@ class _SearchScreenState extends State<SearchScreen> {
               },
               icon: Icon(
                 Icons.arrow_back_ios,
-                size: Dimensions.calcH(40),
+                size: Dimensions.calcH(30),
                 color: kDarkBlueColor,
               ),
             ),
@@ -43,8 +43,9 @@ class _SearchScreenState extends State<SearchScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Youtube Downloader",
+                    "SnapTube",
                     style: TextStyle(
+                      fontFamily: "Poppins",
                       color: Colors.white,
                       fontSize: Dimensions.calcH(25),
                     ),
@@ -74,9 +75,10 @@ class _SearchScreenState extends State<SearchScreen> {
                                     filled: true,
                                     fillColor: kDarkBlueColor.withOpacity(0.3),
                                     hintText: "Search for video",
-                                    hintStyle: TextStyle(
+                                    hintStyle: const TextStyle(
+                                      fontFamily: "Poppins",
                                       color: Colors.white,
-                                      fontSize: 18,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ),
@@ -92,13 +94,14 @@ class _SearchScreenState extends State<SearchScreen> {
                               flex: 0,
                               child: MaterialButton(
                                 onPressed: () => controller.searchItem(),
+                                color: kDarkBlueColor,
                                 child: Text(
                                   "Search",
                                   style: TextStyle(
-                                    fontSize: Dimensions.calcW(17),
+                                    fontFamily: "Poppins",
+                                    fontSize: Dimensions.calcW(14),
                                   ),
                                 ),
-                                color: kDarkBlueColor,
                               ),
                             ),
                           ],
@@ -151,8 +154,9 @@ class _SearchScreenState extends State<SearchScreen> {
                                     child: Text(
                                       "No search results yet!",
                                       style: TextStyle(
+                                        fontFamily: "Poppins",
                                         color: Colors.white,
-                                        fontSize: Dimensions.calcH(20),
+                                        fontSize: Dimensions.calcH(18),
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
@@ -165,8 +169,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             Align(
                               alignment: Alignment.center,
                               child: SizedBox(
-                                height: 80,
-                                width: 80,
+                                height: 40,
+                                width: 40,
                                 child: CircularProgressIndicator(
                                   color: kPrimaryColor,
                                 ),
@@ -179,8 +183,9 @@ class _SearchScreenState extends State<SearchScreen> {
                                 Text(
                                   "Search results",
                                   style: TextStyle(
+                                    fontFamily: "Poppins",
                                     color: Colors.white.withOpacity(0.7),
-                                    fontSize: Dimensions.calcH(18),
+                                    fontSize: Dimensions.calcH(14),
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -193,7 +198,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       onPressed: () => controller.goToPrev(),
                                       icon: Icon(
                                         Icons.arrow_back_ios,
-                                        size: Dimensions.calcH(37),
+                                        size: Dimensions.calcH(25),
                                       ),
                                     ),
                                     Container(
@@ -207,7 +212,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                       alignment: Alignment.center,
                                       child: Text(
                                         controller.currentPage.value.toString(),
-                                        style: TextStyle(
+                                        style:const TextStyle(
+                                            fontFamily: "Poppins",
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -216,7 +222,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       onPressed: () => controller.goToNext(),
                                       icon: Icon(
                                         Icons.arrow_forward_ios,
-                                        size: Dimensions.calcH(37),
+                                        size: Dimensions.calcH(25),
                                       ),
                                     ),
                                   ],
@@ -253,6 +259,7 @@ class _SearchScreenState extends State<SearchScreen> {
               bottom: 0,
               left: 0,
               right: 0,
+              top: 100,
               child: GetBuilder<SearchController>(
                 builder: (controller) => Visibility(
                   visible: controller.isSheetOpen,

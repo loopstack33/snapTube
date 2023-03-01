@@ -57,7 +57,7 @@ class SearchController extends GetxController {
         });
       }
     } else {
-      Get.snackbar("Error", "Input can not be emtpy!",
+      Get.snackbar("Error", "Input can not be empty!",
           snackPosition: SnackPosition.BOTTOM,
           backgroundGradient: const LinearGradient(
               colors: [Colors.red, Colors.orange, Colors.yellow]));

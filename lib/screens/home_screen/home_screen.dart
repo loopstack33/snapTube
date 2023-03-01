@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:youtube_downloader/controllers/search_controller.dart';
 import 'package:youtube_downloader/shared/widgets/bottomSheet.dart';
 import 'package:youtube_downloader/shared/constants.dart';
@@ -20,7 +21,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _getStoragePermission();
   }
+
+
+  Future _getStoragePermission() async {
+    if (await Permission.storage.request().isGranted) {
+
+    } else if (await Permission.storage.request().isPermanentlyDenied) {
+      await openAppSettings();
+    } else if (await Permission.storage.request().isDenied) {
+
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Column(
           children: [
             Text(
-              "Youtube Downloader",
+              "SnapTube",
               style: TextStyle(
+                fontFamily: "Poppins",
                 color: Colors.white,
                 fontSize: Dimensions.calcH(25),
               ),
@@ -58,8 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         fillColor: Colors.grey[20],
                         hintText: "search or paste link!",
                         hintStyle: const TextStyle(
+                          fontFamily: "Poppins",
                           color: Colors.white,
-                          fontSize: 17,
+                          fontSize: 12,
                         ),
                       ),
                     ),
@@ -74,12 +90,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                   flex: 0,
                   child: MaterialButton(
+
                     onPressed: () => controller.validate(),
                     color: kDarkBlueColor,
                     child: Text(
                       "Search",
                       style: TextStyle(
-                        fontSize: Dimensions.calcW(17),
+                        fontFamily: "Poppins",
+                        fontSize: Dimensions.calcW(14),
                       ),
                     ),
                   ),
@@ -124,8 +142,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "No recent activites to show !",
+                                    "No recent activities to show !",
                                     style: TextStyle(
+                                      fontFamily: "Poppins",
                                       color: Colors.white,
                                       fontSize: Dimensions.calcH(20),
                                       fontWeight: FontWeight.w600,
@@ -143,8 +162,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Recent Activites",
+                                      "Recent Activities",
                                       style: TextStyle(
+                                        fontFamily: "Poppins",
                                         color: Colors.white,
                                         fontSize: Dimensions.calcH(20),
                                         fontWeight: FontWeight.w600,
@@ -192,6 +212,7 @@ class _HomeScreenState extends State<HomeScreen> {
               bottom: 0,
               left: 0,
               right: 0,
+              top: 100,
               child: GetBuilder<SearchController>(
                 builder: (controller) => Visibility(
                   visible: controller.isSheetOpen,

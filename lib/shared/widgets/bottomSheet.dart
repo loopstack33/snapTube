@@ -74,6 +74,7 @@ class Sheet extends StatelessWidget {
                     "VIDEO NOT FOUND!\nplease try again!",
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                      fontFamily: "Poppins",
                       color: kPrimaryColor,
                       fontSize: Dimensions.calcH(17),
                     ),
@@ -96,6 +97,7 @@ class Sheet extends StatelessWidget {
                         controllerx.video?.title ?? "Video Title",
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
+                          fontFamily: "Poppins",
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: Dimensions.calcH(15),
@@ -120,10 +122,13 @@ class Sheet extends StatelessWidget {
             if (controllerx.video != null)
               Center(
                 child: SizedBox(
-                  height: 50,
-                  width: 100,
+                  height: 100,
+                 // width: 100,
                   child: (controllerx.video?.thumbnailUrl != null)
-                      ? Image.network(controllerx.video!.thumbnailUrl)
+                      ? ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(controllerx.video!.thumbnailUrl),
+                  )   
                       : const Placeholder(),
                 ),
               ),
@@ -144,15 +149,15 @@ class Sheet extends StatelessWidget {
                         title: Text(
                           mp3Url["type"].toString(),
                           style: TextStyle(
+                            fontFamily: "Poppins",
                             color: Colors.black,
                             fontSize: Dimensions.calcH(18),
                           ),
                         ),
                         subtitle: Text(
-                          mp3Url["frequency"].toString() +
-                              "\n" +
-                              mp3Url["size"].toString(),
+                          "${mp3Url["frequency"]}\n${mp3Url["size"]}",
                           style: TextStyle(
+                            fontFamily: "Poppins",
                             color: Colors.grey,
                             fontSize: Dimensions.calcH(10),
                           ),
@@ -181,15 +186,15 @@ class Sheet extends StatelessWidget {
                         title: Text(
                           "${mp4Urls["type"]}",
                           style: TextStyle(
+                            fontFamily: "Poppins",
                             color: Colors.black,
                             fontSize: Dimensions.calcH(18),
                           ),
                         ),
                         subtitle: Text(
-                          mp4Urls["frequency"].toString() +
-                              "\n" +
-                              mp4Urls["size"].toString(),
+                          "${mp4Urls["frequency"]}\n${mp4Urls["size"]}",
                           style: TextStyle(
+                            fontFamily: "Poppins",
                             color: Colors.grey,
                             fontSize: Dimensions.calcH(10),
                           ),

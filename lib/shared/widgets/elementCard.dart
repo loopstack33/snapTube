@@ -37,17 +37,20 @@ class ElementCard extends GetView<SearchController> {
           leading: SizedBox(
             height: 80,
             width: 80,
-            child: Image.network(thumbnail),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.network(thumbnail),
+            ),
           ),
           title: Text(
             title,
-            style: const TextStyle(color: Colors.black),
+            style: const TextStyle(  fontFamily: "Poppins",fontSize: 14,color: Colors.black),
           ),
           subtitle: Text(
             (desc != "https://youtube.com/watch?v=")
                 ? desc
                 : "https://youtube.com/watch?v=$origin",
-            style: const TextStyle(color: Colors.grey, fontSize: 15),
+            style: const TextStyle(  fontFamily: "Poppins",color: Colors.grey, fontSize: 12),
           ),
           trailing: SizedBox(
             height: 50,
