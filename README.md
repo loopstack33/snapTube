@@ -1,16 +1,30 @@
 # SnapTube
 
-A new Flutter project.
+SnapTube is a youtube video downloader app with converting options like mp3, mp4, 3gp.
 
-## Getting Started
+### Features
+- Search by name or paste link to search any video
+- No Ads
+- Instant search results
+- Beautiful UI
+- GetX
 
-This project is a starting point for a Flutter application.
+# Technologies Used
+-  cupertino_icons: ^1.0.2
+-  get: ^4.6.5
+-  dio: ^5.0.1
+-  flutter_svg: ^2.0.2
+-  flutter_html: ^3.0.0-alpha.5
+-  flutter_downloader: ^1.10.2
+-  permission_handler: ^10.2.0
+-  path_provider: ^2.0.13
+-  file_picker: ^5.2.5
+-  shared_preferences: ^2.0.18
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Screenshots
+![image1](assets/s1.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image2](assets/s2.png)
+
+![image3](assets/s3.png)
